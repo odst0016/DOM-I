@@ -55,9 +55,7 @@ navLinks.forEach((link, i) => {
 //Dealing with the h1
 const h1 = document.querySelector("h1");
 const h1Array = Array.from(siteContent["cta"]["h1"]);
-console.log(h1Array);
 const h1Final = h1Array.map((item) => {
-  console.log(item);
   if (item === " ") {
     return "<br>";
   } else {
@@ -72,3 +70,19 @@ headerButton.textContent = siteContent["cta"]["button"];
 //Dealing with the header image
 const headerImg = document.querySelector("#cta-img");
 headerImg.src = siteContent["cta"]["img-src"];
+
+//dealing with body headers
+const bodyHeadersArr = Object.values(siteContent["main-content"]);
+const arrBodySplit = function (arr) {
+  const arrToReturn = [];
+  for (i in arr) {
+    if (arr[i].includes("img") === true) {
+    } else {
+      arrToReturn.push(arr[i]);
+    }
+  }
+  return arrToReturn;
+};
+
+const filteredBodyArray = arrBodySplit(bodyHeadersArr);
+console.log(filteredBodyArray);
