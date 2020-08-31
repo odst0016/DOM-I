@@ -55,6 +55,7 @@ navLinks.forEach((link, i) => {
   navToChange.style.color = "green";
 });
 
+//added links for mvp
 let yee1 = document.createElement("a");
 let yee2 = document.createElement("a");
 const app = document.querySelector("nav");
