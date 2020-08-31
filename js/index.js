@@ -42,7 +42,7 @@ const siteContent = {
   },
 };
 
-// Example: Update the img src for the logo
+// Example: Update the img src for the logo\
 let logo = document.getElementById("logo-img");
 logo.setAttribute("src", siteContent["nav"]["img-src"]);
 
@@ -51,7 +51,22 @@ const navLinks = document.querySelectorAll("nav a");
 navLinks.forEach((link, i) => {
   const navToChange = document.querySelector(`nav a:nth-of-type(${i + 1})`);
   navToChange.textContent = siteContent["nav"]["nav-item-" + (i + 1)];
+  //Changes nav link color to green
+  navToChange.style.color = "green";
 });
+
+let yee1 = document.createElement("a");
+let yee2 = document.createElement("a");
+const app = document.querySelector("nav");
+app.append(yee1);
+app.append(yee2);
+const yee11 = document.querySelector("nav a:nth-of-type(7)");
+yee11.textContent = "bonusLink1";
+const yee12 = document.querySelector("nav a:nth-of-type(8)");
+yee12.textContent = "bonusLink2";
+yee11.style.color = "green";
+yee12.style.color = "green";
+
 //Dealing with the h1
 const h1 = document.querySelector("h1");
 const h1Array = Array.from(siteContent["cta"]["h1"]);
@@ -85,7 +100,6 @@ const arrBodyFilter = function (arr) {
   return arrToReturn;
 };
 const filteredBodyArray = arrBodyFilter(bodyHeadersArr);
-console.log(filteredBodyArray);
 //function to place body text content
 const bodyTextContent = function (arr) {
   //all logic assumes that content on the mody has a 'header' and a 'paragrah' so
@@ -133,5 +147,23 @@ const bodyTextContent = function (arr) {
     textHeaderToChangeBottomP.textContent =
       arrayParagrahps[i + textPositionsTop.length];
   }
+  const bodyImg = document.querySelector("#middle-img");
+  bodyImg.src = siteContent["main-content"]["middle-img-src"];
 };
 bodyTextContent(filteredBodyArray);
+//dealing with the contact
+const contactSection = function (obj) {
+  contactObj = Object.values(obj);
+  const contactHeader = document.querySelector(".contact h4");
+  contactHeader.textContent = contactObj[0];
+  const contactPara = document.querySelectorAll(".contact p");
+  for (let i = 0; i < contactPara.length; i++) {
+    const contactPToChange = document.querySelector(
+      `.contact p:nth-of-type(${i + 1})`
+    );
+    contactPToChange.textContent = contactObj[i + 1];
+  }
+  const copyright = document.querySelector("footer p");
+  copyright.textContent = siteContent["footer"]["copyright"];
+};
+contactSection(siteContent["contact"]);
