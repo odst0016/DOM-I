@@ -73,7 +73,8 @@ headerImg.src = siteContent["cta"]["img-src"];
 
 //dealing with body headers
 const bodyHeadersArr = Object.values(siteContent["main-content"]);
-const arrBodySplit = function (arr) {
+//function to remove anything related to images from the array and return a new array
+const arrBodyFilter = function (arr) {
   const arrToReturn = [];
   for (i in arr) {
     if (arr[i].includes("img") === true) {
@@ -83,6 +84,26 @@ const arrBodySplit = function (arr) {
   }
   return arrToReturn;
 };
-
-const filteredBodyArray = arrBodySplit(bodyHeadersArr);
+const filteredBodyArray = arrBodyFilter(bodyHeadersArr);
 console.log(filteredBodyArray);
+//function to place body text content
+const bodyTextContent = function (arr) {
+  //all logic assumes that content on the mody has a 'header' and a 'paragrah' so
+  //data should arr.lenght should be divisable by to if not an error will be thrown
+  const arrayHeaders = [];
+  const arrayParagrahps = [];
+  if (arr.length % 2 != 0) {
+    console.log("Whoopsies this aint it chief");
+  }
+  for (i in arr) {
+    //check to see if odd if it is odd it belongs to paragrahps due to arrays starting at 0
+    if (i % 2 != 0) {
+      arrayParagrahps.push(arr[i]);
+    } else {
+      arrayHeaders.push(arr[i]);
+    }
+  }
+  console.log(arrayHeaders);
+  console.log(arrayParagrahps);
+};
+bodyTextContent(filteredBodyArray);
