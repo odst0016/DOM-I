@@ -103,7 +103,35 @@ const bodyTextContent = function (arr) {
       arrayHeaders.push(arr[i]);
     }
   }
-  console.log(arrayHeaders);
-  console.log(arrayParagrahps);
+  const textPositionsTop = document.querySelectorAll(
+    ".top-content .text-content"
+  );
+  const textPositionsBottom = document.querySelectorAll(
+    ".bottom-content .text-content"
+  );
+  //changes text in top section
+  for (let i = 0; i < textPositionsTop.length; i++) {
+    const textHeaderToChangeH = document.querySelector(
+      `.top-content .text-content:nth-of-type(${i + 1}) h4`
+    );
+    const textHeaderToChangeP = document.querySelector(
+      `.top-content .text-content:nth-of-type(${i + 1}) p`
+    );
+    textHeaderToChangeH.textContent = arrayHeaders[i];
+    textHeaderToChangeP.textContent = arrayParagrahps[i];
+  }
+  //changes text in bottom section
+  for (let i = 0; i < textPositionsBottom.length; i++) {
+    const textHeaderToChangeBottomH = document.querySelector(
+      `.bottom-content .text-content:nth-of-type(${i + 1}) h4`
+    );
+    const textHeaderToChangeBottomP = document.querySelector(
+      `.bottom-content .text-content:nth-of-type(${i + 1}) p`
+    );
+    textHeaderToChangeBottomH.textContent =
+      arrayHeaders[i + textPositionsTop.length];
+    textHeaderToChangeBottomP.textContent =
+      arrayParagrahps[i + textPositionsTop.length];
+  }
 };
 bodyTextContent(filteredBodyArray);
