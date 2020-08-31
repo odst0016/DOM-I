@@ -66,6 +66,9 @@ const h1Final = h1Array.map((item) => {
 });
 const h1Text = h1Final.toString().replace(/,/g, "");
 h1.innerHTML = h1Text;
+//Button
+const headerButton = document.querySelector("button");
+headerButton.textContent = siteContent["cta"]["button"];
 //Dealing with the header image
 const headerImg = document.querySelector("#cta-img");
 headerImg.src = siteContent["cta"]["img-src"];
