@@ -47,13 +47,16 @@ let logo = document.getElementById("logo-img");
 logo.setAttribute("src", siteContent["nav"]["img-src"]);
 
 //Dealing with nav links
-const navLinks = document.querySelectorAll("nav a");
-navLinks.forEach((link, i) => {
-  const navToChange = document.querySelector(`nav a:nth-of-type(${i + 1})`);
-  navToChange.textContent = siteContent["nav"]["nav-item-" + (i + 1)];
-  //Changes nav link color to green
-  navToChange.style.color = "green";
-});
+const setNavBar = function () {
+  const navLinks = document.querySelectorAll("nav a");
+  navLinks.forEach((link, i) => {
+    const navToChange = document.querySelector(`nav a:nth-of-type(${i + 1})`);
+    navToChange.textContent = siteContent["nav"]["nav-item-" + (i + 1)];
+    //Changes nav link color to green
+    navToChange.style.color = "green";
+  });
+};
+setNavBar();
 
 //added links for mvp
 let yee1 = document.createElement("a");
@@ -65,9 +68,10 @@ const yee11 = document.querySelector("nav a:nth-of-type(7)");
 yee11.textContent = "bonusLink1";
 const yee12 = document.querySelector("nav a:nth-of-type(8)");
 yee12.textContent = "bonusLink2";
+yee12.href = "#";
+yee11.href = "#";
 yee11.style.color = "green";
 yee12.style.color = "green";
-
 //Dealing with the h1
 const h1 = document.querySelector("h1");
 const h1Array = Array.from(siteContent["cta"]["h1"]);
@@ -168,3 +172,16 @@ const contactSection = function (obj) {
   copyright.textContent = siteContent["footer"]["copyright"];
 };
 contactSection(siteContent["contact"]);
+
+// const textContent1 = document.querySelectorAll(".text-content:nth-of-type(1)");
+// const textContentTitle1 = document.querySelector("h4:nth-of-type(1)");
+// const textContentP1 = document.querySelector("p:nth-of-type(1)");
+// textContentTitle1.textContent = siteContent["main-content"]["features-h4"];
+// textContentP1.textContent = siteContent["main-content"]["features-content"];
+// const textContent2 = document.querySelectorAll(".text-content:nth-of-type(2)");
+// const textContentTitle2 = document.querySelector(
+//   ".text-content:nth-of-type(2) h4"
+// );
+// const textContentP2 = document.querySelector(".text-content:nth-of-type(2) p");
+// textContentTitle2.textContent = siteContent["main-content"]["about-h4"];
+// textContentP2.textContent = siteContent["main-content"]["about-content"];
