@@ -172,16 +172,3 @@ const contactSection = function (obj) {
   copyright.textContent = siteContent["footer"]["copyright"];
 };
 contactSection(siteContent["contact"]);
-
-// const textContent1 = document.querySelectorAll(".text-content:nth-of-type(1)");
-// const textContentTitle1 = document.querySelector("h4:nth-of-type(1)");
-// const textContentP1 = document.querySelector("p:nth-of-type(1)");
-// textContentTitle1.textContent = siteContent["main-content"]["features-h4"];
-// textContentP1.textContent = siteContent["main-content"]["features-content"];
-// const textContent2 = document.querySelectorAll(".text-content:nth-of-type(2)");
-// const textContentTitle2 = document.querySelector(
-//   ".text-content:nth-of-type(2) h4"
-// );
-// const textContentP2 = document.querySelector(".text-content:nth-of-type(2) p");
-// textContentTitle2.textContent = siteContent["main-content"]["about-h4"];
-// textContentP2.textContent = siteContent["main-content"]["about-content"];
